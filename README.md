@@ -1,5 +1,10 @@
 # electron_demo
-A simple step-by-step guide to developing applications with [Electron](http://electron.atom.io/).
+## A simple step-by-step guide to developing applications with [Electron](http://electron.atom.io/).
+
+The Electron framework lets you write cross-platform desktop applications
+using JavaScript, HTML and CSS. It is based on [Node.js](https://nodejs.org/) and
+[Chromium](http://www.chromium.org) and is used by the [Atom
+editor](https://github.com/atom/atom) and many other [apps](https://electron.atom.io/apps).
 
 
 # The bare bones approach. 
@@ -67,7 +72,8 @@ app.on('ready', () => {
 ```
 [![Electron Logo](https://electron.atom.io/images/electron-logo.svg)](https://electron.atom.io/)
 
-## Installing the  [Electron](https://github.com/electron/electron) prebuilt binary for your operating system through npm. Run the following in your CLI (in the project folder):
+## Installing the  [Electron](https://github.com/electron/electron) prebuilt binary for your operating system through npm. 
+Run the following in your CLI (in the project folder):
 ```
 npm install electron --save-dev --save-exact
 ```
