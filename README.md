@@ -16,3 +16,7 @@ With [yo](https://github.com/yeoman/yo):
 ```
 $ yo electron
 ```
+## License
+
+MIT © [Franklin Lema]
+MIT © [Karen Baque]
