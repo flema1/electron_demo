@@ -1,4 +1,7 @@
 # electron_demo
+
+[![Electron Logo](https://electron.atom.io/images/electron-logo.svg)](https://electron.atom.io/)
+
 ## A simple step-by-step guide to developing applications with [Electron](http://electron.atom.io/).
 
 The Electron framework lets you write cross-platform desktop applications
@@ -70,8 +73,6 @@ app.on('ready', () => {
 });
 
 ```
-[![Electron Logo](https://electron.atom.io/images/electron-logo.svg)](https://electron.atom.io/)
-
 ## Installing the  [Electron](https://github.com/electron/electron) prebuilt binary for your operating system through npm. 
 Run the following in your CLI (in the project folder):
 ```
