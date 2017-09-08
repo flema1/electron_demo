@@ -29,7 +29,7 @@ Also in the root directory create a main.js file include the following contents:
 'use strict';
 const electron = require('electron');
 
-
+var BrowserWindow = electron.BrowserWindow;
 const app = electron.app;
 
 // adds debug features like hotkeys for triggering dev tools and reload
