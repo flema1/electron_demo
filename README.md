@@ -9,3 +9,10 @@ A simple step-by-step guide to developing applications with [Electron](http://el
 ```
 $ npm install --global yo generator-electron
 ```
+## Usage
+
+With [yo](https://github.com/yeoman/yo):
+
+```
+$ yo electron
+```
