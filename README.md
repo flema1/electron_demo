@@ -10,7 +10,7 @@ using JavaScript, HTML and CSS. It is based on [Node.js](https://nodejs.org/) an
 editor](https://github.com/atom/atom) and many other [apps](https://electron.atom.io/apps).
 
 
-# The bare bones approach. 
+# The bare bones approach. ☠️
 
 In the project root directory create a new package.json file in it with the following contents:
 
