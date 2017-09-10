@@ -134,15 +134,15 @@ source: https://medium.com/@jimmco/electron-apps-and-live-reload-2a4d621a9fcd
 </p>
 
 
-Install [electron-connect](https://github.com/Quramy/electron-connect), a utility tool to develop applications with Electron.
+## Install [electron-connect](https://github.com/Quramy/electron-connect), a utility tool to develop applications with Electron.
 ```
 $ npm install electron-connect
 ```
-Install gulp (globally):
+## Install gulp (globally):
 ```
 	$ npm install --global gulp-cli
 ```
-... and for local gulp dep in your project
+## ... and for local gulp dep in your project
 ```
 	$ npm install --save-dev gulp
 ```
