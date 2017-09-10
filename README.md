@@ -104,7 +104,7 @@ Create an app directory and an index.html file in that folder with an initial HT
 
 
 # Install with generator-electron [![Build Status](https://travis-ci.org/sindresorhus/generator-electron.svg?branch=master)](https://travis-ci.org/sindresorhus/generator-electron)
-source: https://medium.com/@jimmco/electron-apps-and-live-reload-2a4d621a9fcd
+
 
 ## Install
 
@@ -121,7 +121,10 @@ With [yo](https://github.com/yeoman/yo):
 
 
 # Live reloading your Electron app with Gulp
-There are a few options but here's one way to use auto reload with [Gulp](https://github.com/gulpjs/gulp) instead of manual reloading.
+## There are a few options but here's one way to use auto reload with [Gulp](https://github.com/gulpjs/gulp) instead of manual reloading.
+
+source: https://medium.com/@jimmco/electron-apps-and-live-reload-2a4d621a9fcd
+
 
 <p align="center">
   <a href="http://gulpjs.com">
