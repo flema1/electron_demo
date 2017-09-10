@@ -114,7 +114,7 @@ Create an app directory and an index.html file in that folder with an initial HT
 ```
 	$ npm install --global yo generator-electron
 ```
-## Usage
+## Run using yo:
 
 With [yo](https://github.com/yeoman/yo):
 
