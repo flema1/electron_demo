@@ -11,110 +11,112 @@ editor](https://github.com/atom/atom) and many other [apps](https://electron.ato
 
 
 # The bare bones approach. ☠️
+source: https://medium.com/@jimmco/electron-apps-and-live-reload-2a4d621a9fcd
 
 In the project root directory create a new package.json file in it with the following contents:
 
-```
-{
-    "name": "sound_machine",
-    "version": "0.1.0",
-    "main": "./main.js",
-    "scripts": {
-        "start": "electron ."
-    }
-}
+	```
+	{
+	    "name": "sound_machine",
+	    "version": "0.1.0",
+	    "main": "./main.js",
+	    "scripts": {
+		"start": "electron ."
+	    }
+	}
 ```
 Also in the root directory create a main.js file include the following contents:
-```
-'use strict';
-const electron = require('electron');
+	```
+	'use strict';
+	const electron = require('electron');
 
-var BrowserWindow = electron.BrowserWindow;
-const app = electron.app;
+	var BrowserWindow = electron.BrowserWindow;
+	const app = electron.app;
 
-// adds debug features like hotkeys for triggering dev tools and reload
-require('electron-debug')();
+	// adds debug features like hotkeys for triggering dev tools and reload
+	require('electron-debug')();
 
-// prevent window being garbage collected
-let mainWindow;
+	// prevent window being garbage collected
+	let mainWindow;
 
-function onClosed() {
-	// dereference the window
-	// for multiple windows store them in an array
-	mainWindow = null;
-}
+	function onClosed() {
+		// dereference the window
+		// for multiple windows store them in an array
+		mainWindow = null;
+	}
 
-function createMainWindow() {
-	const win = new electron.BrowserWindow({
-		width: 600,
-		height: 400
+	function createMainWindow() {
+		const win = new electron.BrowserWindow({
+			width: 600,
+			height: 400
+		});
+
+		win.loadURL(`file://${__dirname}/app/index.html`);
+		win.on('closed', onClosed);
+
+		return win;
+	}
+
+	app.on('window-all-closed', () => {
+		if (process.platform !== 'darwin') {
+			app.quit();
+		}
 	});
 
-	win.loadURL(`file://${__dirname}/app/index.html`);
-	win.on('closed', onClosed);
+	app.on('activate', () => {
+		if (!mainWindow) {
+			mainWindow = createMainWindow();
+		}
+	});
 
-	return win;
-}
-
-app.on('window-all-closed', () => {
-	if (process.platform !== 'darwin') {
-		app.quit();
-	}
-});
-
-app.on('activate', () => {
-	if (!mainWindow) {
+	app.on('ready', () => {
 		mainWindow = createMainWindow();
-	}
-});
-
-app.on('ready', () => {
-	mainWindow = createMainWindow();
-});
+	});
 
 ```
 ## Installing the  [Electron](https://github.com/electron/electron) prebuilt binary for your operating system through npm. 
 Run the following in your CLI (in the project folder):
 ```
-npm install electron --save-dev --save-exact
+	npm install electron --save-dev --save-exact
 ```
 
 Create an app directory and an index.html file in that folder with an initial HTML boiler plate and a 'hello world':
 ```
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Electron boilerplate</title>
-		<link rel="stylesheet" href="index.css">
-		
-	</head>
-	<body>
-		<div class="container">
-			<header>
-				<h1>Hello World!</h1>
-			</header>
-			<section class="main"></section>
-			<footer></footer>
-		</div>
-</html>
+	<!doctype html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>Electron boilerplate</title>
+			<link rel="stylesheet" href="index.css">
+
+		</head>
+		<body>
+			<div class="container">
+				<header>
+					<h1>Hello World!</h1>
+				</header>
+				<section class="main"></section>
+				<footer></footer>
+			</div>
+	</html>
 ```
 
 
 
 # Install with generator-electron [![Build Status](https://travis-ci.org/sindresorhus/generator-electron.svg?branch=master)](https://travis-ci.org/sindresorhus/generator-electron)
+source: https://medium.com/@jimmco/electron-apps-and-live-reload-2a4d621a9fcd
 
 ## Install
 
 ```
-$ npm install --global yo generator-electron
+	$ npm install --global yo generator-electron
 ```
 ## Usage
 
 With [yo](https://github.com/yeoman/yo):
 
 ```
-$ yo electron
+	$ yo electron
 ```
 
 
@@ -128,47 +130,84 @@ There are a few options but here's one way to use auto reload with [Gulp](https:
   <p align="center">The streaming build system</p>
 </p>
 
+
+Install [electron-connect](https://github.com/Quramy/electron-connect), a utility tool to develop applications with Electron.
 ```
 $ npm install electron-connect
 ```
-## First, install gulp (globally):
+Install gulp (globally):
 ```
-$ npm install --global gulp-cli
+	$ npm install --global gulp-cli
 ```
-## and for local gulp dep in your project
+... and for local gulp dep in your project
 ```
-$ npm install --save-dev gulp
+	$ npm install --save-dev gulp
 ```
 ## Then create a gulpfile.js with task that provides reloading
 
 ```
-'use strict';
-var gulp = require('gulp');
-var electron = require('electron-connect').server.create();
-gulp.task('default', function () {
-// Start browser process
- electron.start();
-// Restart browser process
- gulp.watch('app.js', electron.restart);
-// Reload renderer process
- gulp.watch(['index.html'], electron.reload);
-});
-https://medium.com/@jimmco/electron-apps-and-live-reload-2a4d621a9fcd
+	'use strict';
+	var gulp = require('gulp');
+	var electron = require('electron-connect').server.create();
+	gulp.task('default', function () {
+	// Start browser process
+	 electron.start();
+	// Restart browser process
+	 gulp.watch('app.js', electron.restart);
+	// Reload renderer process
+	 gulp.watch(['index.html'], electron.reload);
+	});
+	https://medium.com/@jimmco/electron-apps-and-live-reload-2a4d621a9fcd
 ```
 
 ##  Attach a client script to the  Electron app index.html.
 ```
-<script>require(‘electron-connect’).client.create()</script>
+	<script>require(‘electron-connect’).client.create()</script>
 ```
 
 ## In app.js connect mainWindow to electron-connect
 ```
-var client = require('electron-connect').client;
-var BrowserWindow = electron.BrowserWindow;
+	var client = require('electron-connect').client;
+	var BrowserWindow = electron.BrowserWindow;
 ```
 ### Start gulp task by running “gulp”;
 
-## License
+# Using [jQuery](https://jquery.com/) with the Electron Framework
+  <p align="center"> <a href="https://jquery.com/">
+    <img height="50" width="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Logo_jQuery.svg/2000px-Logo_jQuery.svg.png">
+  </a>
 
-MIT © [Franklin Lema]
-MIT © [Karen Baque]
+</p>
+
+### JQuery cannot be used in Electron simply by including the jQuery script file into your document. An error message on the console will look as following :
+```
+	Uncaught ReferenceError : $ is not defined
+	 or
+	Uncaught ReferenceError : jQuery is not defined
+```
+source: https://ourcodeworld.com/articles/read/202/how-to-include-and-use-jquery-in-electron-framework
+
+
+## Install 
+```
+	npm install jquery --save
+```
+
+## Add the following code inside a script tag in the main.js file to fix the loading issue:
+
+```
+	<script>window.$ = window.jQuery = require('jquery');</script>
+```
+
+### Jquery may also be loaded from a jquery file or a hosted [library](https://developers.google.com/speed/libraries/). On the main.js file, insert the normal script imports with an addition "onload" assignment to address the loading issue:
+```
+	<script src="scripts/jquery.min.js onload="window.$ = window.jQuery = module.exports;"></script>  
+
+	or 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js onload="window.$ = window.jQuery = 	module.exports;"></script>
+```
+source: https://stackoverflow.com/questions/37745273/integrate-jquery-into-a-electron-app
+
+
+
