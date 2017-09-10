@@ -103,7 +103,10 @@ Create an app directory and an index.html file in that folder with an initial HT
 
 
 
-# Install with generator-electron [![Build Status](https://travis-ci.org/sindresorhus/generator-electron.svg?branch=master)]
+# Installing Electron with [generator-electron](https://github.com/sindresorhus/generator-electron)
+
+![sourced screenshot](https://github.com/sindresorhus/generator-electron/blob/master/screenshot.png)
+
 
 
 ## Install
