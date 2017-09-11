@@ -1,0 +1,11 @@
+*{
+    background: ghostwhite; 
+}
+
+#hello{
+    font-size: 100px; 
+}
+button{
+ background: orange; 
+ outline:none;
+}

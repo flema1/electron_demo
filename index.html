@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Electron App</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>  
+	</head>
+	<body>
+            <!--A simple "hello world" electron app! -->
+            <header>
+		        <h1 id="hello" >Welcomeee to this TBA App 🤷🏻‍♀️ ‍</h1>
+		    </header>
+
+            <button type="button">Click Me!</button>
+
+            <script>require('electron-connect').client.create()
+            // checking for Jquery
+
+                $(document).ready(function(){
+                        if (jQuery){  
+                            console.log("Jquery loaded")
+                            } else {
+                            console.log("Jquery did not load")
+                        }
+                    //onclick toggles between "hello world" and "Hola Mundo"
+                    $("button").click(function(){
+
+                        if ( $("#hello").text()=== "Hola Mundo!"){
+                            $("#hello").text("Hello World!");
+                        }
+                        else  $("#hello").text("Hola Mundo!");
+                    });
+            });
+            
+            </script>	
+    </body>
+</html>
