@@ -11,7 +11,8 @@ editor](https://github.com/atom/atom) and many other [apps](https://electron.ato
 
 
 # The bare bones approach. ☠️
-source: https://medium.com/@jimmco/electron-apps-and-live-reload-2a4d621a9fcd
+
+![root dir screenshot](https://github.com/flema1/electron_demo/blob/master/Screen%20Shot%202017-09-10%20at%208.04.26%20PM.png)
 
 In the project root directory create a new package.json file in it with the following contents:
 
@@ -72,8 +73,10 @@ Also in the root directory create a main.js file include the following contents:
 	app.on('ready', () => {
 		mainWindow = createMainWindow();
 	});
-
 ```
+source: https://medium.com/@jimmco/electron-apps-and-live-reload-2a4d621a9fcd
+
+
 ## Installing the  [Electron](https://github.com/electron/electron) prebuilt binary for your operating system through npm. 
 Run the following in your CLI (in the project folder):
 ```
@@ -176,7 +179,10 @@ $ npm install electron-connect
 	var client = require('electron-connect').client;
 	var BrowserWindow = electron.BrowserWindow;
 ```
-### Start gulp task by running “gulp”;
+
+## Start gulp task by running “gulp”;
+![root dir screenshot](https://github.com/flema1/electron_demo/blob/master/Screen%20Shot%202017-09-10%20at%208.03.41%20PM.png)
+
 
 # Using [jQuery](https://jquery.com/) with the Electron Framework
   <p align="center"> <a href="https://jquery.com/">
