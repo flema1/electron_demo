@@ -1,0 +1,17 @@
+h2{
+    background-color: pink;
+    width: 50px;
+}
+div{
+    width: 100px;
+}
+
+#ex1{
+    font-size: 120px;
+    width: 250px;
+    position: relative;
+    display: inline-block;
+}
+h1{
+  font-size: 100px;
+}

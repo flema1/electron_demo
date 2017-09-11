@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Electron boilerplate</title>
+		<link rel="stylesheet" href="index.css">
+		 <!-- Insert this line above script imports  -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<!-- normal script imports etc  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+		</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Welcomeee to this TBA App 🤷🏻‍♀️ ‍</h1>
+			</header>
+		<section class="main"></section>
+
+		<div>
+			<h2 id="ex1"  onclick="myFunction()">Example</h2>
+			<button type="button" >Click Me!</button>
+		</div>
+		<footer></footer>
+		</div>
+		<script src="main.js"></script>
+		<script>require("electron-connect").client.create()
+		 $(document).ready(function(){
+             if (jQuery) {  
+               // jQuery is loaded  
+               alert("Yeah!");                 
+             } else {
+               // jQuery is not loaded
+               alert("Doesn't Work");
+             }
+          });
+		</script>
+
+	</body>
+</html>
